@@ -9,8 +9,9 @@ generator client {
 }
 
 datasource db {
-    provider = "postgresql"
-    url      = env("DATABASE_URL")
+    provider  = "postgresql"
+    url       = env("DATABASE_URL")
+    directUrl = env("DIRECT_URL")
 }
 
 enum UserRole {
@@ -19,7 +20,7 @@ enum UserRole {
 }
 
 model User {
-    id        Int      @id @default(autoincrement())
+    id        String   @id @default(uuid())
     clerkId   String   @unique
     email     String   @unique
     role      UserRole @default(USER)
@@ -27,6 +28,41 @@ model User {
     lastName  String?
     imageUrl  String?
 
+    problems Problem[]
+
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
+
+    @@index([role])
+}
+
+enum Difficulty {
+    EASY
+    MEDIUM
+    HARD
+}
+
+model Problem {
+    id          String     @id @default(uuid())
+    title       String
+    description String
+    difficutly  Difficulty
+    tags        String[]
+
+    userId      String
+    examples    Json
+    constraints String
+    hints       String?
+    editorial   String?
+
+    testCases         Json
+    codeSnippets      Json
+    referenceSolution Json
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+    @@index([difficutly])
 }
