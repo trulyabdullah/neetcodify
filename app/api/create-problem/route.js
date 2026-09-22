@@ -135,9 +135,11 @@ export async function POST(request) {
 			{ status: 201 },
 		);
 	} catch (dbError) {
-		console.error("Database error:", dbError);
+		console.error("Create problem error:", dbError);
 		return NextResponse.json(
-			{ error: "Failed to save problem to database" },
+			{
+				error: "Failed to create problem",
+			},
 			{ status: 500 },
 		);
 	}
