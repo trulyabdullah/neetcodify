@@ -1,9 +1,9 @@
-import { Button } from "@/components/ui/button";
+import { UserButton } from "@clerk/nextjs";
 
 export default function Home() {
 	return (
 		<div className="flex min-h-screen justify-center items-center">
-			<Button>Click me</Button>
+			<UserButton />
 		</div>
 	);
 }
