@@ -19,7 +19,7 @@ const Navbar = ({ userRole }) => {
 							height={42}
 						/>
 						<span className="font-bold text-2xl tracking-widest text-amber-300">
-							LeetCode
+							NeetCodify
 						</span>
 					</Link>
 
