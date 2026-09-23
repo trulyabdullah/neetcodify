@@ -40,7 +40,7 @@ export async function GET(request) {
 			orderBy: { createdAt: "desc" },
 		});
 
-		return NextResponse.json({ success: true }, playlists);
+		return NextResponse.json({ success: true, data: playlists });
 	} catch (error) {
 		console.error("Error fetching playlist: ", error);
 		return NextResponse.json(

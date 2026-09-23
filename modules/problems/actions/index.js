@@ -15,7 +15,7 @@ export const getAllProblems = async () => {
 		const user = await currentUser();
 		const data = await db.user.findUnique({
 			where: {
-				clerkId: user?.id,
+				clerkId: user.id,
 			},
 			select: {
 				id: true,
