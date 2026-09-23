@@ -40,9 +40,9 @@ import {
 	getAllSubmissionByCurrentUserForProblem,
 	getProblemById,
 } from "@/modules/problems/actions";
-import { SubmissionDetails } from "@/modules/problems/components/submission-details";
 import { TestCaseTable } from "@/modules/problems/components/test-case-table";
 import { SubmissionHistory } from "@/modules/problems/components/submission-history";
+import { SubmissionDetails } from "@/modules/problems/components/submission-details";
 
 const getDifficultyColor = (difficulty) => {
 	switch (difficulty) {
