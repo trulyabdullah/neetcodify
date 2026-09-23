@@ -11,13 +11,7 @@ import {
 	Search,
 	Filter,
 } from "lucide-react";
-import AddToPlaylistModal from "./add-to-playlist";
-import CreatePlaylistModal from "./create-playlist";
-import {
-	createPlaylist,
-	deleteProblem,
-	addProblemToPlaylist,
-} from "../actions";
+import { deleteProblem } from "../actions";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
@@ -39,6 +33,8 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Checkbox } from "@/components/ui/checkbox";
 import { toast } from "sonner";
+import AddToPlaylistModal from "./add-to-playlist";
+import CreatePlaylistModal from "./create-playlist";
 
 const ProblemsTable = ({ problems, user }) => {
 	const [search, setSearch] = useState("");

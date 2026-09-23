@@ -110,7 +110,6 @@ export async function POST(request) {
 			}
 		}
 
-		// Step 3: Save the problem in the database after all validations pass
 		const newProblem = await db.problem.create({
 			data: {
 				title,
