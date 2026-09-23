@@ -45,7 +45,7 @@ const AddToPlaylistModal = ({ isOpen, onClose, onSubmit, problemId }) => {
 			onClose();
 		} catch (error) {
 			console.error("Error adding to playlist:", error);
-			toast.error("Failed to add problem to playlist");
+			toast.error(error.message || "Failed to add problem to playlist");
 		} finally {
 			setIsLoading(false);
 		}

@@ -52,12 +52,26 @@ export async function POST(request, { params }) {
 		}
 
 		// Add problem to playlist
-		const problemInPlaylist = await db.problemInPlaylist.create({
-			data: {
-				problemId,
-				playlistId,
-			},
-		});
+		let problemInPlaylist;
+		try {
+			problemInPlaylist = await db.problemInPlaylist.create({
+				data: {
+					problemId,
+					playlistId,
+				},
+			});
+		} catch (error) {
+			if (error.code === "P2002") {
+				return NextResponse.json(
+					{
+						success: false,
+						error: "This problem is already in that playlist",
+					},
+					{ status: 409 },
+				);
+			}
+			throw error;
+		}
 
 		return NextResponse.json({
 			success: true,
