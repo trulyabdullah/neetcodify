@@ -13,11 +13,7 @@ import {
 } from "lucide-react";
 import AddToPlaylistModal from "./add-to-playlist";
 import CreatePlaylistModal from "./create-playlist";
-import {
-	createPlaylist,
-	deleteProblem,
-	addProblemToPlaylist,
-} from "../actions";
+import { deleteProblem } from "../actions";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
