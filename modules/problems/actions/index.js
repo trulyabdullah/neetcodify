@@ -38,7 +38,7 @@ export const getAllProblems = async () => {
 		return { success: true, data: problems };
 	} catch (error) {
 		console.error("Error fetching problems: ", error);
-		return { success: false, error: "Failed to fetch problems" };
+		return { success: false, error: error.message }; // temp: see the real message
 	}
 };
 
